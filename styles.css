@@ -25,6 +25,7 @@ body {
 .gamesq {
 	display: flex;
 	justify-content: center;
+	width: 100%;
 	font-size: 120px;
 	background-color: rgb(19, 19, 19);
 }

@@ -58,7 +58,7 @@ const checkWinner = function () {
 			(board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") ||
 			(board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X")
 		) {
-			$(".score").text("Winner!! player one").css("color", "yellow");
+			$(".score").text("Winner!! player one");
 			players[0].score += 1;
 			$(".player-one-score").text(`player one score: ${players[0].score}`);
 			winner = true;
@@ -77,7 +77,7 @@ const checkWinner = function () {
 			(board[0][0] === "O" && board[1][1] === "O" && board[2][2] === "O") ||
 			(board[0][2] === "O" && board[1][1] === "O" && board[2][0] === "O")
 		) {
-			$(".score").text("Winner!! player two").css("color", "yellow");
+			$(".score").text("Winner!! player two");
 			players[1].score += 1;
 			$(".player-two-score").text(`player one score: ${players[1].score}`);
 			winner = true;
@@ -90,7 +90,7 @@ const updateBoard = function (x, y) {
 	turnCount += 1;
 	checkWinner();
 	if (turnCount === 9 && winner === false) {
-		$(".score").text("No one won try again!").css("color", "red");
+		$(".score").text("No one won try again!");
 	}
 };
 const gameOver = function () {
@@ -104,9 +104,18 @@ const gameOver = function () {
 	$(".gamesq").removeClass("taken");
 	$(".gamesq").removeClass("cross");
 	$(".gamesq").removeClass("circle");
-	$(".score").text("Play to see who wins!").css("color", "aliceblue");
+	$(".score").text("Play to see who wins!");
 };
 $(".reset").click(function () {
 	gameOver();
+});
+// --- light - dark toggle
+$(".toggle").click(function () {
+	$("body").toggleClass("lightmode");
+	$(".gamesq").toggleClass("lightmode-cubes");
+	$("button").toggleClass("lightmode-buttons");
+	if ($(this).text() === "light mode") {
+		$(this).text("dark mode");
+	} else $(this).text("light mode");
 });
 makeNewBoard(3, 3);

@@ -52,3 +52,5 @@ We invite you to work on any or all of the following:
 A more advanced game (Memory? Battleship? Connect Four?)
 Your Github portfolio site
 Any other front-end project that interests you
+
+firebase project code: tictactoe-408c3

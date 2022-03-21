@@ -48,6 +48,11 @@ body {
 	font-size: 100px;
 	background-color: rgb(19, 19, 19);
 }
+.gamesq:hover {
+	transition: 0.5s;
+	border-radius: 20px;
+	background-color: rgb(32, 32, 32);
+}
 .taken {
 	background-color: rgb(53, 53, 53);
 }

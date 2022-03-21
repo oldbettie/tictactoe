@@ -16,17 +16,15 @@ let player = players[0];
 let blankBoard = [];
 let turnCount = 0;
 let winner = false;
+
 //once they click a sq change turns
 const changePlayer = function () {
 	if (player === players[0]) {
 		player = players[1];
-		return player;
 	} else player = players[0];
-	return player;
 };
 // --- refactored for a single event
 $(".gamesq").click(function () {
-	let id = $(this).prop("id");
 	let currentsq = $(this).prop("id").split("-");
 	$(this).text(player.character);
 	$(this).addClass("taken");
@@ -63,6 +61,7 @@ const checkWinner = function () {
 			players[0].score += 1;
 			$(".player-one-score").text(`player one score: ${players[0].score}`);
 			winner = true;
+			setTimeout(gameOver, 4000);
 		}
 	} else if (player === players[1]) {
 		if (
@@ -82,6 +81,7 @@ const checkWinner = function () {
 			players[1].score += 1;
 			$(".player-two-score").text(`player one score: ${players[1].score}`);
 			winner = true;
+			setTimeout(gameOver, 4000);
 		}
 	}
 };
@@ -101,6 +101,7 @@ const gameOver = function () {
 	board = blankBoard;
 	$(".gamesq").text("");
 	$(".gamesq").removeClass("taken");
+	$(".score").text("Play to see who wins!").css("color", "aliceblue");
 };
 $(".reset").click(function () {
 	gameOver();

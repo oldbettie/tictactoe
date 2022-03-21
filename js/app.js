@@ -60,8 +60,9 @@ const checkWinner = function () {
 			(board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X")
 		) {
 			$(".score").text("Winner!! player one").css("color", "yellow");
+			players[0].score += 1;
+			$(".player-one-score").text(`player one score: ${players[0].score}`);
 			winner = true;
-			return makeNewBoard(3, 3);
 		}
 	} else if (player === players[1]) {
 		if (
@@ -78,8 +79,9 @@ const checkWinner = function () {
 			(board[0][2] === "O" && board[1][1] === "O" && board[2][0] === "O")
 		) {
 			$(".score").text("Winner!! player two").css("color", "yellow");
+			players[1].score += 1;
+			$(".player-two-score").text(`player one score: ${players[1].score}`);
 			winner = true;
-			return makeNewBoard(3, 3);
 		}
 	}
 };
@@ -90,4 +92,17 @@ const updateBoard = function (x, y) {
 	checkWinner();
 	if (turnCount === 9 && winner === false) $(".score").text("No one won try again!").css("color", "red");
 };
+const gameOver = function () {
+	player = players[0];
+	blankBoard = [];
+	turnCount = 0;
+	makeNewBoard(3, 3);
+	winner = false;
+	board = blankBoard;
+	$(".gamesq").text("");
+	$(".gamesq").removeClass("taken");
+};
+$(".reset").click(function () {
+	gameOver();
+});
 makeNewBoard(3, 3);

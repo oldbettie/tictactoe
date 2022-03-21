@@ -22,9 +22,15 @@ body {
 	grid-template-rows: 1fr 1fr 1fr;
 	gap: 10px;
 }
-.game-board > div {
+.gamesq {
 	display: flex;
 	justify-content: center;
 	font-size: 120px;
 	background-color: rgb(19, 19, 19);
+}
+.taken {
+	display: flex;
+	justify-content: center;
+	font-size: 120px;
+	background-color: rgb(53, 53, 53);
 }

@@ -1,20 +1,4 @@
-// import { initializeApp } from "firebase/app";
-
-// // TODO: Replace the following with your app's Firebase project configuration
-
-// const firebaseConfig = {
-// 	apiKey: "AIzaSyAOYJTxTnzyI5n74XVGnMEvxX4whjzeCM0",
-// 	authDomain: "tictactoe-408c3.firebaseapp.com",
-// 	projectId: "tictactoe-408c3",
-// 	storageBucket: "tictactoe-408c3.appspot.com",
-// 	messagingSenderId: "455684682761",
-// 	appId: "1:455684682761:web:865b7936e17125470174d8",
-// 	measurementId: "G-J6LM93PD36",
-// };
-
-// const app = initializeApp(firebaseConfig);
-
-//players/score/peice object
+// --- players/score/peice object
 const players = [
 	{
 		name: "one",
@@ -27,13 +11,13 @@ const players = [
 		character: "O",
 	},
 ];
-// ---start positions
+// --- start positions
 let player = players[0];
 let blankBoard = [];
 let turnCount = 0;
 let winner = false;
 
-//once they click a sq change turns
+// --- once they click a sq change turns
 const changePlayer = function () {
 	if (player === players[0]) {
 		player = players[1];
@@ -45,9 +29,10 @@ $(".gamesq").click(function () {
 	$(this).text(player.character);
 	$(this).addClass("taken");
 	updateBoard(currentsq[0], currentsq[1]);
+	if ($(this).text() === "X" ? $(this).addClass("cross") : $(this).addClass("circle"));
 	changePlayer(player);
 });
-
+// --- board layout
 const makeNewBoard = function (x, y) {
 	for (let i = 0; i < x; i++) {
 		blankBoard.push([]);
@@ -57,7 +42,7 @@ const makeNewBoard = function (x, y) {
 	}
 	return blankBoard;
 };
-
+// --- logic to find the winner
 const checkWinner = function () {
 	if (player === players[0]) {
 		if (
@@ -77,7 +62,6 @@ const checkWinner = function () {
 			players[0].score += 1;
 			$(".player-one-score").text(`player one score: ${players[0].score}`);
 			winner = true;
-			setTimeout(gameOver, 4000);
 		}
 	} else if (player === players[1]) {
 		if (
@@ -97,7 +81,6 @@ const checkWinner = function () {
 			players[1].score += 1;
 			$(".player-two-score").text(`player one score: ${players[1].score}`);
 			winner = true;
-			setTimeout(gameOver, 4000);
 		}
 	}
 };
@@ -106,7 +89,9 @@ const updateBoard = function (x, y) {
 	board = blankBoard;
 	turnCount += 1;
 	checkWinner();
-	if (turnCount === 9 && winner === false) $(".score").text("No one won try again!").css("color", "red");
+	if (turnCount === 9 && winner === false) {
+		$(".score").text("No one won try again!").css("color", "red");
+	}
 };
 const gameOver = function () {
 	player = players[0];
@@ -117,6 +102,8 @@ const gameOver = function () {
 	board = blankBoard;
 	$(".gamesq").text("");
 	$(".gamesq").removeClass("taken");
+	$(".gamesq").removeClass("cross");
+	$(".gamesq").removeClass("circle");
 	$(".score").text("Play to see who wins!").css("color", "aliceblue");
 };
 $(".reset").click(function () {

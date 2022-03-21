@@ -65,3 +65,9 @@ body {
 	width: 50%;
 	padding-left: 0px;
 }
+.cross {
+	color: yellow;
+}
+.circle {
+	color: blueviolet;
+}

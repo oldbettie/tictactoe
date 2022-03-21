@@ -1,3 +1,19 @@
+// import { initializeApp } from "firebase/app";
+
+// // TODO: Replace the following with your app's Firebase project configuration
+
+// const firebaseConfig = {
+// 	apiKey: "AIzaSyAOYJTxTnzyI5n74XVGnMEvxX4whjzeCM0",
+// 	authDomain: "tictactoe-408c3.firebaseapp.com",
+// 	projectId: "tictactoe-408c3",
+// 	storageBucket: "tictactoe-408c3.appspot.com",
+// 	messagingSenderId: "455684682761",
+// 	appId: "1:455684682761:web:865b7936e17125470174d8",
+// 	measurementId: "G-J6LM93PD36",
+// };
+
+// const app = initializeApp(firebaseConfig);
+
 //players/score/peice object
 const players = [
 	{

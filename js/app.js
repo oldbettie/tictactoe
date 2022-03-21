@@ -15,6 +15,7 @@ const players = [
 let player = players[0];
 let blankBoard = [];
 let turnCount = 0;
+let winner = false;
 //once they click a sq change turns
 const changePlayer = function () {
 	if (player === players[0]) {
@@ -23,60 +24,13 @@ const changePlayer = function () {
 	} else player = players[0];
 	return player;
 };
-
-// target individual squares
-$(".board-0-0").click(function () {
-	$(".board-0-0").text(player.character);
-	$(".board-0-0").addClass("taken");
-	updateBoard(0, 0);
-	changePlayer(player);
-});
-$(".board-0-1").click(function () {
-	$(".board-0-1").text(player.character);
-	$(".board-0-1").addClass("taken");
-	updateBoard(0, 1, players.character);
-	changePlayer(player);
-});
-$(".board-0-2").click(function () {
-	$(".board-0-2").text(player.character);
-	$(".board-0-2").addClass("taken");
-	updateBoard(0, 2);
-	changePlayer(player);
-});
-$(".board-1-0").click(function () {
-	$(".board-1-0").text(player.character);
-	$(".board-1-0").addClass("taken");
-	updateBoard(1, 0);
-	changePlayer(player);
-});
-$(".board-1-1").click(function () {
-	$(".board-1-1").text(player.character);
-	$(".board-1-1").addClass("taken");
-	updateBoard(1, 1);
-	changePlayer(player);
-});
-$(".board-1-2").click(function () {
-	$(".board-1-2").text(player.character);
-	$(".board-1-2").addClass("taken");
-	updateBoard(1, 2);
-	changePlayer(player);
-});
-$(".board-2-0").click(function () {
-	$(".board-2-0").text(player.character);
-	$(".board-2-0").addClass("taken");
-	updateBoard(2, 0);
-	changePlayer(player);
-});
-$(".board-2-1").click(function () {
-	$(".board-2-1").text(player.character);
-	$(".board-2-1").addClass("taken");
-	updateBoard(2, 1);
-	changePlayer(player);
-});
-$(".board-2-2").click(function () {
-	$(".board-2-2").text(player.character);
-	$(".board-2-2").addClass("taken");
-	updateBoard(2, 2, player);
+// --- refactored for a single event
+$(".gamesq").click(function () {
+	let id = $(this).prop("id");
+	let currentsq = $(this).prop("id").split("-");
+	$(this).text(player.character);
+	$(this).addClass("taken");
+	updateBoard(currentsq[0], currentsq[1]);
 	changePlayer(player);
 });
 
@@ -91,9 +45,9 @@ const makeNewBoard = function (x, y) {
 };
 
 const checkWinner = function () {
-	// --- horizontal
 	if (player === players[0]) {
 		if (
+			// horizontal
 			(board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") ||
 			(board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") ||
 			(board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X") ||
@@ -105,10 +59,13 @@ const checkWinner = function () {
 			(board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") ||
 			(board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X")
 		) {
-			console.log("Player One X Wins!!!");
+			$(".score").text("Winner!! player one").css("color", "yellow");
+			winner = true;
+			return makeNewBoard(3, 3);
 		}
 	} else if (player === players[1]) {
 		if (
+			// --- horizontal
 			(board[0][0] === "O" && board[0][1] === "O" && board[0][2] === "O") ||
 			(board[1][0] === "O" && board[1][1] === "O" && board[1][2] === "O") ||
 			(board[2][0] === "O" && board[2][1] === "O" && board[2][2] === "O") ||
@@ -120,7 +77,9 @@ const checkWinner = function () {
 			(board[0][0] === "O" && board[1][1] === "O" && board[2][2] === "O") ||
 			(board[0][2] === "O" && board[1][1] === "O" && board[2][0] === "O")
 		) {
-			console.log("Player Two O Wins!!!");
+			$(".score").text("Winner!! player two").css("color", "yellow");
+			winner = true;
+			return makeNewBoard(3, 3);
 		}
 	}
 };
@@ -128,9 +87,7 @@ const updateBoard = function (x, y) {
 	blankBoard[x][y] = player.character;
 	board = blankBoard;
 	turnCount += 1;
-	console.log(turnCount);
-	if (turnCount > 8) console.log("no winners");
 	checkWinner();
+	if (turnCount === 9 && winner === false) $(".score").text("No one won try again!").css("color", "red");
 };
 makeNewBoard(3, 3);
-console.log(blankBoard);

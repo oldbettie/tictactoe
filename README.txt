@@ -1,17 +1,12 @@
 #Overview
-Let's start out with something fun - a game!
+
 
 We'll be making Tic Tac Toe, a game that takes seconds to learn but minutes to master! Everyone will get a chance to be creative, and work through some really tough programming challenges to get your feet wet in the world of web development.
-
-"hand me your phone," load up the game, and play a quick round!
-
-You will be working individually for this project, but we'll be guiding you along the process and helping as you go. Show us what you've got!
 
 #Big Goals
 Build a web application from scratch, without a starter codebase
 Use your programming skills to map out the game logic for a simple game like Tic Tac Toe
 Separate HTML, CSS, and JavaScript files in your application
-Build an application to a spec that someone else gives you
 Build a dynamic game that allows two players to compete
 Craft a readme.md file that explains your app to the world
 
@@ -21,7 +16,6 @@ Your app must:
 Render a game board in the browser
 Switch turns between X and O (or whichever markers you select)
 Visually display which side won if a player gets three in a row or show a draw/"cat’s game" if neither wins
-Include separate HTML / CSS / JavaScript files
 Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
 Use Javascript for DOM manipulation
 Deploy your game online, where the rest of the world can access it

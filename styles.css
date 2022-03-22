@@ -37,8 +37,8 @@ button:hover {
 	cursor: pointer;
 }
 .grid-container {
-	max-width: 850px;
-	max-height: 850px;
+	max-width: 750px;
+	max-height: 750px;
 	margin: 0 auto;
 	display: grid;
 	grid-template-rows: 1fr 8fr 1fr;

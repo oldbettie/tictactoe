@@ -115,7 +115,7 @@ $(".toggle").click(function () {
 	$(".gamesq").toggleClass("lightmode-cubes");
 	$("button").toggleClass("lightmode-buttons");
 	if ($(this).text() === "light mode") {
-		$(this).text("dark mode");
-	} else $(this).text("light mode");
+		$(this).text("Dark Mode");
+	} else $(this).text("Light Mode");
 });
 makeNewBoard(3, 3);

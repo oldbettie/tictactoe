@@ -13,15 +13,23 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
+.button-container {
+	display: flex;
+	margin 5px 5px;
+
+}
 button {
 	margin-top: 10px;
 	margin-left: -40px;
 	font-size: 15px;
 	background-color: rgb(50, 50, 49);
+	color: aliceblue;
 	padding: 10px 10px;
+	margin-left: 10px;
 	border-radius: 10px;
 	border-style: none;
 }
+
 button:hover {
 	transition: 1s;
 	border-radius: 30px;
@@ -29,8 +37,8 @@ button:hover {
 	cursor: pointer;
 }
 .grid-container {
-	max-width: 650px;
-	max-height: 750px;
+	max-width: 850px;
+	max-height: 850px;
 	margin: 0 auto;
 	display: grid;
 	grid-template-rows: 1fr 8fr 1fr;
@@ -84,6 +92,7 @@ button:hover {
 }
 .lightmode-buttons {
 	background-color: rgb(237, 237, 230);
+	color: black;
 }
 .lightmode-buttons:hover {
 	background-color: rgb(228, 207, 207);

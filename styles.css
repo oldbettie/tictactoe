@@ -36,7 +36,7 @@ button:hover {
 	cursor: pointer;
 }
 .grid-container {
-	max-width: 70vw;
+	max-width: 80vw;
 	max-height: 90vw;
 	margin: 0 auto;
 	display: grid;

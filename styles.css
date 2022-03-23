@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-size: 50px;
+	font-size: 4vw;
 	text-align: center;
 	font-family: "Dosis", sans-serif;
 	line-height: 1.8;
@@ -15,16 +15,15 @@ body {
 }
 .button-container {
 	display: flex;
-	margin 5px 5px;
-
+	margin: 1vw 1vw;
 }
 button {
-	margin-top: 10px;
-	margin-left: -40px;
-	font-size: 15px;
+	margin-top: 1vh;
+	margin-left: 4vw;
+	font-size: 2vh;
 	background-color: rgb(50, 50, 49);
 	color: aliceblue;
-	padding: 10px 10px;
+	padding: 1vh 1vh;
 	margin-left: 10px;
 	border-radius: 10px;
 	border-style: none;
@@ -37,24 +36,24 @@ button:hover {
 	cursor: pointer;
 }
 .grid-container {
-	max-width: 750px;
-	max-height: 750px;
+	max-width: 70vw;
+	max-height: 90vw;
 	margin: 0 auto;
 	display: grid;
-	grid-template-rows: 1fr 8fr 1fr;
-	margin-top: -15px;
+	grid-template-rows: 1fr 10fr 1fr;
+	margin-top: -1vh;
 }
 .game-board {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
-	gap: 10px;
+	gap: 1vh;
 }
 .gamesq {
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	font-size: 100px;
+	font-size: 12vh;
 	background-color: rgb(19, 19, 19);
 }
 .gamesq:hover {
@@ -67,7 +66,7 @@ button:hover {
 }
 .bottom-grid {
 	display: flex;
-	font-size: 30px;
+	font-size: 3vw;
 	justify-content: start;
 }
 .bottom-grid > div {

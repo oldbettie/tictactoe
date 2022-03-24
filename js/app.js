@@ -90,6 +90,7 @@ const checkWinner = function () {
 		}
 	}
 };
+// --- updates the board every turn to later check for winners
 const updateBoard = function (x, y) {
 	blankBoard[x][y] = player.character;
 	board = blankBoard;
@@ -99,7 +100,8 @@ const updateBoard = function (x, y) {
 		$(".score").text("No one won try again!");
 	}
 };
-const gameOver = function () {
+// --- resets the board but not the score
+$(".reset").click(function () {
 	player = players[0];
 	blankBoard = [];
 	turnCount = 0;
@@ -111,9 +113,6 @@ const gameOver = function () {
 	$(".gamesq").removeClass("cross");
 	$(".gamesq").removeClass("circle");
 	$(".score").text("Play to see who wins!");
-};
-$(".reset").click(function () {
-	gameOver();
 });
 // --- light - dark toggle
 $(".toggle").click(function () {

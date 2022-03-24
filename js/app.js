@@ -28,12 +28,14 @@ $(".gamesq").click(function () {
 	let currentsq = $(this).prop("id").split("-");
 	let x = currentsq[0];
 	let y = currentsq[1];
-	if (blankBoard[x][y] === "" || blankBoard[x][y] === "") {
-		$(this).text(player.character);
-		$(this).addClass("taken");
-		updateBoard(currentsq[0], currentsq[1]);
-		if ($(this).text() === "X" ? $(this).addClass("cross") : $(this).addClass("circle"));
-		changePlayer(player);
+	if (winner === false) {
+		if (blankBoard[x][y] === "" || blankBoard[x][y] === "") {
+			$(this).text(player.character);
+			$(this).addClass("taken");
+			updateBoard(currentsq[0], currentsq[1]);
+			if ($(this).text() === "X" ? $(this).addClass("cross") : $(this).addClass("circle"));
+			changePlayer(player);
+		}
 	}
 });
 // --- board layout
